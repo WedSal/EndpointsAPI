@@ -1,0 +1,97 @@
+service: notes-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-north-1
+  environment:
+    USERS_TABLE: UsersTable
+    NOTES_TABLE: NotesTable
+    JWT_SECRET: my-super-secret-key
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:Query
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - arn:aws:dynamodb:eu-north-1:911167889587:table/NotesTable
+        - arn:aws:dynamodb:eu-north-1:911167889587:table/UsersTable
+
+functions:
+  signup:
+    handler: handler.signup
+    events:
+      - http:
+          path: user/signup
+          method: post
+          cors: true
+
+  login:
+    handler: handler.login
+    events:
+      - http:
+          path: user/login
+          method: post
+          cors: true
+
+  getNotes:
+    handler: handler.getNotes
+    events:
+      - http:
+          path: notes
+          method: get
+          cors: true
+
+  addNote:
+    handler: handler.addNote
+    events:
+      - http:
+          path: notes
+          method: post
+          cors: true
+
+  updateNote:
+    handler: handler.updateNote
+    events:
+      - http:
+          path: notes
+          method: put
+          cors: true
+
+  deleteNote:
+    handler: handler.deleteNote
+    events:
+      - http:
+          path: notes/{id}
+          method: delete
+          cors: true
+
+resources:
+  Resources:
+    NotesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: NotesTable
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+    UsersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: UsersTable
+        AttributeDefinitions:
+          - AttributeName: email
+            AttributeType: S
+        KeySchema:
+          - AttributeName: email
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
