@@ -1,4 +1,5 @@
-service: notes-api
+service: EndpointsAPI
+frameworkVersion: '4'
 
 provider:
   name: aws
@@ -7,7 +8,7 @@ provider:
   environment:
     USERS_TABLE: UsersTable
     NOTES_TABLE: NotesTable
-    JWT_SECRET: my-super-secret-key
+    JWT_SECRET: d958b1bb58e247e6f254711ff0439013ff8ff9a7a05530532473e4b2bcdcd35ec47c011041f7bac9967b16d436d9511bd60b33b8f6554b50c63c74294ee4ea85
   iamRoleStatements:
     - Effect: Allow
       Action:

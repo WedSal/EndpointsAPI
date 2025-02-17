@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk';
+import { v4 as uuidv4 } from 'uuid';
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const TABLE_NAME = process.env.NOTES_TABLE;
@@ -39,7 +40,7 @@ export const addNote = async (noteData) => {
   const params = {
     TableName: TABLE_NAME,
     Item: {
-      id: timestamp,
+      id: uuidv4(),
       title,
       text,
       userId,
@@ -128,10 +129,16 @@ export const deleteNote = async (id, userId) => {
       body: JSON.stringify({ message: 'Note deleted successfully' }),
     };
   } catch (error) {
-    console.error('Error deleting note:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: 'Failed to delete note' }),
-    };
-  }
+    if (error.code === 'ConditionalCheckFailedException') {
+    return { statusCode: 404,
+    body: JSON.stringify({ message: 'Note not found or you do not have permission to delete it' }),
+  };
+} else {
+  console.error('Error deleting note:', error);
+  return {
+    statusCode: 500,
+    body: JSON.stringify({ message: 'Failed to delete note' }),
+  };
+}
+}
 };

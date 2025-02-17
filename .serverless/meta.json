@@ -1,10 +1,11 @@
 {
-  "/Users/weda/Desktop/NotesApi/serverless.yml": {
+  "/Users/weda/Desktop/EndpointsAPI/serverless.yml": {
     "versionFramework": "4.6.2",
-    "servicePath": "/Users/weda/Desktop/NotesApi/serverless.yml",
+    "servicePath": "/Users/weda/Desktop/EndpointsAPI/serverless.yml",
     "serviceConfigFileName": "serverless.yml",
     "service": {
-      "service": "notes-api",
+      "service": "EndpointsAPI",
+      "frameworkVersion": "4",
       "provider": {
         "name": "aws",
         "runtime": "nodejs18.x",
@@ -40,37 +41,37 @@
             "SignupLogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/notes-api-dev-signup"
+                "LogGroupName": "/aws/lambda/EndpointsAPI-dev-signup"
               }
             },
             "LoginLogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/notes-api-dev-login"
+                "LogGroupName": "/aws/lambda/EndpointsAPI-dev-login"
               }
             },
             "GetNotesLogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/notes-api-dev-getNotes"
+                "LogGroupName": "/aws/lambda/EndpointsAPI-dev-getNotes"
               }
             },
             "AddNoteLogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/notes-api-dev-addNote"
+                "LogGroupName": "/aws/lambda/EndpointsAPI-dev-addNote"
               }
             },
             "UpdateNoteLogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/notes-api-dev-updateNote"
+                "LogGroupName": "/aws/lambda/EndpointsAPI-dev-updateNote"
               }
             },
             "DeleteNoteLogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/notes-api-dev-deleteNote"
+                "LogGroupName": "/aws/lambda/EndpointsAPI-dev-deleteNote"
               }
             },
             "IamRoleLambdaExecution": {
@@ -98,7 +99,7 @@
                       "Fn::Join": [
                         "-",
                         [
-                          "notes-api",
+                          "EndpointsAPI",
                           "dev",
                           "lambda"
                         ]
@@ -116,7 +117,7 @@
                           ],
                           "Resource": [
                             {
-                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/notes-api-dev*:*"
+                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/EndpointsAPI-dev*:*"
                             }
                           ]
                         },
@@ -127,7 +128,7 @@
                           ],
                           "Resource": [
                             {
-                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/notes-api-dev*:*:*"
+                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/EndpointsAPI-dev*:*:*"
                             }
                           ]
                         },
@@ -155,7 +156,7 @@
                   "Fn::Join": [
                     "-",
                     [
-                      "notes-api",
+                      "EndpointsAPI",
                       "dev",
                       {
                         "Ref": "AWS::Region"
@@ -171,11 +172,11 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                  "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                  "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
                 },
                 "Handler": "handler.signup",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "notes-api-dev-signup",
+                "FunctionName": "EndpointsAPI-dev-signup",
                 "MemorySize": 1024,
                 "Timeout": 6,
                 "Environment": {
@@ -201,11 +202,11 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                  "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                  "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
                 },
                 "Handler": "handler.login",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "notes-api-dev-login",
+                "FunctionName": "EndpointsAPI-dev-login",
                 "MemorySize": 1024,
                 "Timeout": 6,
                 "Environment": {
@@ -231,11 +232,11 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                  "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                  "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
                 },
                 "Handler": "handler.getNotes",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "notes-api-dev-getNotes",
+                "FunctionName": "EndpointsAPI-dev-getNotes",
                 "MemorySize": 1024,
                 "Timeout": 6,
                 "Environment": {
@@ -261,11 +262,11 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                  "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                  "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
                 },
                 "Handler": "handler.addNote",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "notes-api-dev-addNote",
+                "FunctionName": "EndpointsAPI-dev-addNote",
                 "MemorySize": 1024,
                 "Timeout": 6,
                 "Environment": {
@@ -291,11 +292,11 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                  "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                  "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
                 },
                 "Handler": "handler.updateNote",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "notes-api-dev-updateNote",
+                "FunctionName": "EndpointsAPI-dev-updateNote",
                 "MemorySize": 1024,
                 "Timeout": 6,
                 "Environment": {
@@ -321,11 +322,11 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                  "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                  "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
                 },
                 "Handler": "handler.deleteNote",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "notes-api-dev-deleteNote",
+                "FunctionName": "EndpointsAPI-dev-deleteNote",
                 "MemorySize": 1024,
                 "Timeout": 6,
                 "Environment": {
@@ -346,70 +347,70 @@
                 "DeleteNoteLogGroup"
               ]
             },
-            "SignupLambdaVersion8karyYfrpsRpyD1HUvisUbaIZZhrmTvriN2pi9XZA": {
+            "SignupLambdaVersionHA8nx499yXJDjG7klZXqQbTiEx0r0RIOGTG2OdjMQ": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "SignupLambdaFunction"
                 },
-                "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+                "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
               }
             },
-            "LoginLambdaVersioneth8ADylkx3nhFmNZcZzGBjXWQDHIVwx6fLS5ezo": {
+            "LoginLambdaVersion86mafisvhF3G48I0v0UX4yu6TbuZZ5QRv0cHrkL1U": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "LoginLambdaFunction"
                 },
-                "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+                "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
               }
             },
-            "GetNotesLambdaVersionqJk0yPwwMbvhQ3xQ05WmK5e9tyCrjaLcJuBGu5j5lY": {
+            "GetNotesLambdaVersionBREBRHslMAY9zcUPcUwBnBNo1Ra6hsen2jRdCEefL4": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetNotesLambdaFunction"
                 },
-                "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+                "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
               }
             },
-            "AddNoteLambdaVersion8zKnDSsYEeqENZSZIj2B5ZhQ5tLzawZU9s6bKEQk": {
+            "AddNoteLambdaVersionk5TETzHBKBTZHhNXWEYg8YpN6zTqU6qbl9SWyTgjo": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "AddNoteLambdaFunction"
                 },
-                "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+                "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
               }
             },
-            "UpdateNoteLambdaVersionVzVyX0KBZrogPhGtd2w88NbXx2oQmOn3dDzaCOV5w": {
+            "UpdateNoteLambdaVersion5riFZ6LwuJN47MUJH2MwejzhCOVcladcDRe61Wdzkc": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "UpdateNoteLambdaFunction"
                 },
-                "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+                "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
               }
             },
-            "DeleteNoteLambdaVersion1t3TovoHRlRyOOIvJNaXMl4EK8D3ba3QabOqrzEM": {
+            "DeleteNoteLambdaVersionJFD2d76klqRPZTx6VyE8hktTYdlDLYpcYxcpOu8NOM": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "DeleteNoteLambdaFunction"
                 },
-                "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+                "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
               }
             },
             "ApiGatewayRestApi": {
               "Type": "AWS::ApiGateway::RestApi",
               "Properties": {
-                "Name": "dev-notes-api",
+                "Name": "dev-EndpointsAPI",
                 "EndpointConfiguration": {
                   "Types": [
                     "EDGE"
@@ -940,7 +941,7 @@
                 "DeleteNoteLambdaPermissionApiGateway"
               ]
             },
-            "ApiGatewayDeployment1739660630453": {
+            "ApiGatewayDeployment1739743316965": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -1226,61 +1227,61 @@
             "ServerlessDeploymentBucketName": {
               "Value": "serverless-framework-deployments-eu-north-1-b08760de-9703",
               "Export": {
-                "Name": "sls-notes-api-dev-ServerlessDeploymentBucketName"
+                "Name": "sls-EndpointsAPI-dev-ServerlessDeploymentBucketName"
               }
             },
             "SignupLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "SignupLambdaVersion8karyYfrpsRpyD1HUvisUbaIZZhrmTvriN2pi9XZA"
+                "Ref": "SignupLambdaVersionHA8nx499yXJDjG7klZXqQbTiEx0r0RIOGTG2OdjMQ"
               },
               "Export": {
-                "Name": "sls-notes-api-dev-SignupLambdaFunctionQualifiedArn"
+                "Name": "sls-EndpointsAPI-dev-SignupLambdaFunctionQualifiedArn"
               }
             },
             "LoginLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "LoginLambdaVersioneth8ADylkx3nhFmNZcZzGBjXWQDHIVwx6fLS5ezo"
+                "Ref": "LoginLambdaVersion86mafisvhF3G48I0v0UX4yu6TbuZZ5QRv0cHrkL1U"
               },
               "Export": {
-                "Name": "sls-notes-api-dev-LoginLambdaFunctionQualifiedArn"
+                "Name": "sls-EndpointsAPI-dev-LoginLambdaFunctionQualifiedArn"
               }
             },
             "GetNotesLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetNotesLambdaVersionqJk0yPwwMbvhQ3xQ05WmK5e9tyCrjaLcJuBGu5j5lY"
+                "Ref": "GetNotesLambdaVersionBREBRHslMAY9zcUPcUwBnBNo1Ra6hsen2jRdCEefL4"
               },
               "Export": {
-                "Name": "sls-notes-api-dev-GetNotesLambdaFunctionQualifiedArn"
+                "Name": "sls-EndpointsAPI-dev-GetNotesLambdaFunctionQualifiedArn"
               }
             },
             "AddNoteLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "AddNoteLambdaVersion8zKnDSsYEeqENZSZIj2B5ZhQ5tLzawZU9s6bKEQk"
+                "Ref": "AddNoteLambdaVersionk5TETzHBKBTZHhNXWEYg8YpN6zTqU6qbl9SWyTgjo"
               },
               "Export": {
-                "Name": "sls-notes-api-dev-AddNoteLambdaFunctionQualifiedArn"
+                "Name": "sls-EndpointsAPI-dev-AddNoteLambdaFunctionQualifiedArn"
               }
             },
             "UpdateNoteLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "UpdateNoteLambdaVersionVzVyX0KBZrogPhGtd2w88NbXx2oQmOn3dDzaCOV5w"
+                "Ref": "UpdateNoteLambdaVersion5riFZ6LwuJN47MUJH2MwejzhCOVcladcDRe61Wdzkc"
               },
               "Export": {
-                "Name": "sls-notes-api-dev-UpdateNoteLambdaFunctionQualifiedArn"
+                "Name": "sls-EndpointsAPI-dev-UpdateNoteLambdaFunctionQualifiedArn"
               }
             },
             "DeleteNoteLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "DeleteNoteLambdaVersion1t3TovoHRlRyOOIvJNaXMl4EK8D3ba3QabOqrzEM"
+                "Ref": "DeleteNoteLambdaVersionJFD2d76klqRPZTx6VyE8hktTYdlDLYpcYxcpOu8NOM"
               },
               "Export": {
-                "Name": "sls-notes-api-dev-DeleteNoteLambdaFunctionQualifiedArn"
+                "Name": "sls-EndpointsAPI-dev-DeleteNoteLambdaFunctionQualifiedArn"
               }
             },
             "ServiceEndpoint": {
@@ -1306,7 +1307,7 @@
                 ]
               },
               "Export": {
-                "Name": "sls-notes-api-dev-ServiceEndpoint"
+                "Name": "sls-EndpointsAPI-dev-ServiceEndpoint"
               }
             }
           }
@@ -1342,13 +1343,13 @@
               }
             }
           ],
-          "name": "notes-api-dev-signup",
+          "name": "EndpointsAPI-dev-signup",
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "SignupLambdaVersion8karyYfrpsRpyD1HUvisUbaIZZhrmTvriN2pi9XZA"
+          "versionLogicalId": "SignupLambdaVersionHA8nx499yXJDjG7klZXqQbTiEx0r0RIOGTG2OdjMQ"
         },
         "login": {
           "handler": "handler.login",
@@ -1378,13 +1379,13 @@
               }
             }
           ],
-          "name": "notes-api-dev-login",
+          "name": "EndpointsAPI-dev-login",
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "LoginLambdaVersioneth8ADylkx3nhFmNZcZzGBjXWQDHIVwx6fLS5ezo"
+          "versionLogicalId": "LoginLambdaVersion86mafisvhF3G48I0v0UX4yu6TbuZZ5QRv0cHrkL1U"
         },
         "getNotes": {
           "handler": "handler.getNotes",
@@ -1414,13 +1415,13 @@
               }
             }
           ],
-          "name": "notes-api-dev-getNotes",
+          "name": "EndpointsAPI-dev-getNotes",
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "GetNotesLambdaVersionqJk0yPwwMbvhQ3xQ05WmK5e9tyCrjaLcJuBGu5j5lY"
+          "versionLogicalId": "GetNotesLambdaVersionBREBRHslMAY9zcUPcUwBnBNo1Ra6hsen2jRdCEefL4"
         },
         "addNote": {
           "handler": "handler.addNote",
@@ -1450,13 +1451,13 @@
               }
             }
           ],
-          "name": "notes-api-dev-addNote",
+          "name": "EndpointsAPI-dev-addNote",
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "AddNoteLambdaVersion8zKnDSsYEeqENZSZIj2B5ZhQ5tLzawZU9s6bKEQk"
+          "versionLogicalId": "AddNoteLambdaVersionk5TETzHBKBTZHhNXWEYg8YpN6zTqU6qbl9SWyTgjo"
         },
         "updateNote": {
           "handler": "handler.updateNote",
@@ -1486,13 +1487,13 @@
               }
             }
           ],
-          "name": "notes-api-dev-updateNote",
+          "name": "EndpointsAPI-dev-updateNote",
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "UpdateNoteLambdaVersionVzVyX0KBZrogPhGtd2w88NbXx2oQmOn3dDzaCOV5w"
+          "versionLogicalId": "UpdateNoteLambdaVersion5riFZ6LwuJN47MUJH2MwejzhCOVcladcDRe61Wdzkc"
         },
         "deleteNote": {
           "handler": "handler.deleteNote",
@@ -1522,13 +1523,13 @@
               }
             }
           ],
-          "name": "notes-api-dev-deleteNote",
+          "name": "EndpointsAPI-dev-deleteNote",
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "DeleteNoteLambdaVersion1t3TovoHRlRyOOIvJNaXMl4EK8D3ba3QabOqrzEM"
+          "versionLogicalId": "DeleteNoteLambdaVersionJFD2d76klqRPZTx6VyE8hktTYdlDLYpcYxcpOu8NOM"
         }
       },
       "resources": {
@@ -1610,37 +1611,37 @@
           "SignupLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/notes-api-dev-signup"
+              "LogGroupName": "/aws/lambda/EndpointsAPI-dev-signup"
             }
           },
           "LoginLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/notes-api-dev-login"
+              "LogGroupName": "/aws/lambda/EndpointsAPI-dev-login"
             }
           },
           "GetNotesLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/notes-api-dev-getNotes"
+              "LogGroupName": "/aws/lambda/EndpointsAPI-dev-getNotes"
             }
           },
           "AddNoteLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/notes-api-dev-addNote"
+              "LogGroupName": "/aws/lambda/EndpointsAPI-dev-addNote"
             }
           },
           "UpdateNoteLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/notes-api-dev-updateNote"
+              "LogGroupName": "/aws/lambda/EndpointsAPI-dev-updateNote"
             }
           },
           "DeleteNoteLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/notes-api-dev-deleteNote"
+              "LogGroupName": "/aws/lambda/EndpointsAPI-dev-deleteNote"
             }
           },
           "IamRoleLambdaExecution": {
@@ -1668,7 +1669,7 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "notes-api",
+                        "EndpointsAPI",
                         "dev",
                         "lambda"
                       ]
@@ -1686,7 +1687,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/notes-api-dev*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/EndpointsAPI-dev*:*"
                           }
                         ]
                       },
@@ -1697,7 +1698,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/notes-api-dev*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/EndpointsAPI-dev*:*:*"
                           }
                         ]
                       },
@@ -1725,7 +1726,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "notes-api",
+                    "EndpointsAPI",
                     "dev",
                     {
                       "Ref": "AWS::Region"
@@ -1741,11 +1742,11 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
               },
               "Handler": "handler.signup",
               "Runtime": "nodejs18.x",
-              "FunctionName": "notes-api-dev-signup",
+              "FunctionName": "EndpointsAPI-dev-signup",
               "MemorySize": 1024,
               "Timeout": 6,
               "Environment": {
@@ -1771,11 +1772,11 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
               },
               "Handler": "handler.login",
               "Runtime": "nodejs18.x",
-              "FunctionName": "notes-api-dev-login",
+              "FunctionName": "EndpointsAPI-dev-login",
               "MemorySize": 1024,
               "Timeout": 6,
               "Environment": {
@@ -1801,11 +1802,11 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
               },
               "Handler": "handler.getNotes",
               "Runtime": "nodejs18.x",
-              "FunctionName": "notes-api-dev-getNotes",
+              "FunctionName": "EndpointsAPI-dev-getNotes",
               "MemorySize": 1024,
               "Timeout": 6,
               "Environment": {
@@ -1831,11 +1832,11 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
               },
               "Handler": "handler.addNote",
               "Runtime": "nodejs18.x",
-              "FunctionName": "notes-api-dev-addNote",
+              "FunctionName": "EndpointsAPI-dev-addNote",
               "MemorySize": 1024,
               "Timeout": 6,
               "Environment": {
@@ -1861,11 +1862,11 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
               },
               "Handler": "handler.updateNote",
               "Runtime": "nodejs18.x",
-              "FunctionName": "notes-api-dev-updateNote",
+              "FunctionName": "EndpointsAPI-dev-updateNote",
               "MemorySize": 1024,
               "Timeout": 6,
               "Environment": {
@@ -1891,11 +1892,11 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-                "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+                "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
               },
               "Handler": "handler.deleteNote",
               "Runtime": "nodejs18.x",
-              "FunctionName": "notes-api-dev-deleteNote",
+              "FunctionName": "EndpointsAPI-dev-deleteNote",
               "MemorySize": 1024,
               "Timeout": 6,
               "Environment": {
@@ -1916,70 +1917,70 @@
               "DeleteNoteLogGroup"
             ]
           },
-          "SignupLambdaVersion8karyYfrpsRpyD1HUvisUbaIZZhrmTvriN2pi9XZA": {
+          "SignupLambdaVersionHA8nx499yXJDjG7klZXqQbTiEx0r0RIOGTG2OdjMQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SignupLambdaFunction"
               },
-              "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+              "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
             }
           },
-          "LoginLambdaVersioneth8ADylkx3nhFmNZcZzGBjXWQDHIVwx6fLS5ezo": {
+          "LoginLambdaVersion86mafisvhF3G48I0v0UX4yu6TbuZZ5QRv0cHrkL1U": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "LoginLambdaFunction"
               },
-              "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+              "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
             }
           },
-          "GetNotesLambdaVersionqJk0yPwwMbvhQ3xQ05WmK5e9tyCrjaLcJuBGu5j5lY": {
+          "GetNotesLambdaVersionBREBRHslMAY9zcUPcUwBnBNo1Ra6hsen2jRdCEefL4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetNotesLambdaFunction"
               },
-              "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+              "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
             }
           },
-          "AddNoteLambdaVersion8zKnDSsYEeqENZSZIj2B5ZhQ5tLzawZU9s6bKEQk": {
+          "AddNoteLambdaVersionk5TETzHBKBTZHhNXWEYg8YpN6zTqU6qbl9SWyTgjo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AddNoteLambdaFunction"
               },
-              "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+              "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
             }
           },
-          "UpdateNoteLambdaVersionVzVyX0KBZrogPhGtd2w88NbXx2oQmOn3dDzaCOV5w": {
+          "UpdateNoteLambdaVersion5riFZ6LwuJN47MUJH2MwejzhCOVcladcDRe61Wdzkc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UpdateNoteLambdaFunction"
               },
-              "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+              "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
             }
           },
-          "DeleteNoteLambdaVersion1t3TovoHRlRyOOIvJNaXMl4EK8D3ba3QabOqrzEM": {
+          "DeleteNoteLambdaVersionJFD2d76klqRPZTx6VyE8hktTYdlDLYpcYxcpOu8NOM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeleteNoteLambdaFunction"
               },
-              "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+              "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-notes-api",
+              "Name": "dev-EndpointsAPI",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -2510,7 +2511,7 @@
               "DeleteNoteLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1739660630453": {
+          "ApiGatewayDeployment1739743316965": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -2796,61 +2797,61 @@
           "ServerlessDeploymentBucketName": {
             "Value": "serverless-framework-deployments-eu-north-1-b08760de-9703",
             "Export": {
-              "Name": "sls-notes-api-dev-ServerlessDeploymentBucketName"
+              "Name": "sls-EndpointsAPI-dev-ServerlessDeploymentBucketName"
             }
           },
           "SignupLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SignupLambdaVersion8karyYfrpsRpyD1HUvisUbaIZZhrmTvriN2pi9XZA"
+              "Ref": "SignupLambdaVersionHA8nx499yXJDjG7klZXqQbTiEx0r0RIOGTG2OdjMQ"
             },
             "Export": {
-              "Name": "sls-notes-api-dev-SignupLambdaFunctionQualifiedArn"
+              "Name": "sls-EndpointsAPI-dev-SignupLambdaFunctionQualifiedArn"
             }
           },
           "LoginLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "LoginLambdaVersioneth8ADylkx3nhFmNZcZzGBjXWQDHIVwx6fLS5ezo"
+              "Ref": "LoginLambdaVersion86mafisvhF3G48I0v0UX4yu6TbuZZ5QRv0cHrkL1U"
             },
             "Export": {
-              "Name": "sls-notes-api-dev-LoginLambdaFunctionQualifiedArn"
+              "Name": "sls-EndpointsAPI-dev-LoginLambdaFunctionQualifiedArn"
             }
           },
           "GetNotesLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetNotesLambdaVersionqJk0yPwwMbvhQ3xQ05WmK5e9tyCrjaLcJuBGu5j5lY"
+              "Ref": "GetNotesLambdaVersionBREBRHslMAY9zcUPcUwBnBNo1Ra6hsen2jRdCEefL4"
             },
             "Export": {
-              "Name": "sls-notes-api-dev-GetNotesLambdaFunctionQualifiedArn"
+              "Name": "sls-EndpointsAPI-dev-GetNotesLambdaFunctionQualifiedArn"
             }
           },
           "AddNoteLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AddNoteLambdaVersion8zKnDSsYEeqENZSZIj2B5ZhQ5tLzawZU9s6bKEQk"
+              "Ref": "AddNoteLambdaVersionk5TETzHBKBTZHhNXWEYg8YpN6zTqU6qbl9SWyTgjo"
             },
             "Export": {
-              "Name": "sls-notes-api-dev-AddNoteLambdaFunctionQualifiedArn"
+              "Name": "sls-EndpointsAPI-dev-AddNoteLambdaFunctionQualifiedArn"
             }
           },
           "UpdateNoteLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UpdateNoteLambdaVersionVzVyX0KBZrogPhGtd2w88NbXx2oQmOn3dDzaCOV5w"
+              "Ref": "UpdateNoteLambdaVersion5riFZ6LwuJN47MUJH2MwejzhCOVcladcDRe61Wdzkc"
             },
             "Export": {
-              "Name": "sls-notes-api-dev-UpdateNoteLambdaFunctionQualifiedArn"
+              "Name": "sls-EndpointsAPI-dev-UpdateNoteLambdaFunctionQualifiedArn"
             }
           },
           "DeleteNoteLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeleteNoteLambdaVersion1t3TovoHRlRyOOIvJNaXMl4EK8D3ba3QabOqrzEM"
+              "Ref": "DeleteNoteLambdaVersionJFD2d76klqRPZTx6VyE8hktTYdlDLYpcYxcpOu8NOM"
             },
             "Export": {
-              "Name": "sls-notes-api-dev-DeleteNoteLambdaFunctionQualifiedArn"
+              "Name": "sls-EndpointsAPI-dev-DeleteNoteLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -2876,7 +2877,7 @@
               ]
             },
             "Export": {
-              "Name": "sls-notes-api-dev-ServiceEndpoint"
+              "Name": "sls-EndpointsAPI-dev-ServiceEndpoint"
             }
           }
         }
@@ -2892,7 +2893,7 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "serviceRawFile": "service: notes-api\n\nprovider:\n  name: aws\n  runtime: nodejs18.x\n  region: eu-north-1\n  environment:\n    USERS_TABLE: UsersTable\n    NOTES_TABLE: NotesTable\n    JWT_SECRET: my-super-secret-key\n  iamRoleStatements:\n    - Effect: Allow\n      Action:\n        - dynamodb:Scan\n        - dynamodb:Query\n        - dynamodb:GetItem\n        - dynamodb:PutItem\n        - dynamodb:UpdateItem\n        - dynamodb:DeleteItem\n      Resource:\n        - arn:aws:dynamodb:eu-north-1:911167889587:table/NotesTable\n        - arn:aws:dynamodb:eu-north-1:911167889587:table/UsersTable\n\nfunctions:\n  signup:\n    handler: handler.signup\n    events:\n      - http:\n          path: user/signup\n          method: post\n          cors: true\n\n  login:\n    handler: handler.login\n    events:\n      - http:\n          path: user/login\n          method: post\n          cors: true\n\n  getNotes:\n    handler: handler.getNotes\n    events:\n      - http:\n          path: notes\n          method: get\n          cors: true\n\n  addNote:\n    handler: handler.addNote\n    events:\n      - http:\n          path: notes\n          method: post\n          cors: true\n\n  updateNote:\n    handler: handler.updateNote\n    events:\n      - http:\n          path: notes\n          method: put\n          cors: true\n\n  deleteNote:\n    handler: handler.deleteNote\n    events:\n      - http:\n          path: notes/{id}\n          method: delete\n          cors: true\n\nresources:\n  Resources:\n    NotesTable:\n      Type: AWS::DynamoDB::Table\n      Properties:\n        TableName: NotesTable\n        AttributeDefinitions:\n          - AttributeName: id\n            AttributeType: S\n        KeySchema:\n          - AttributeName: id\n            KeyType: HASH\n        BillingMode: PAY_PER_REQUEST\n\n    UsersTable:\n      Type: AWS::DynamoDB::Table\n      Properties:\n        TableName: UsersTable\n        AttributeDefinitions:\n          - AttributeName: email\n            AttributeType: S\n        KeySchema:\n          - AttributeName: email\n            KeyType: HASH\n        BillingMode: PAY_PER_REQUEST\n",
+    "serviceRawFile": "service: EndpointsAPI\nframeworkVersion: '4'\n\nprovider:\n  name: aws\n  runtime: nodejs18.x\n  region: eu-north-1\n  environment:\n    USERS_TABLE: UsersTable\n    NOTES_TABLE: NotesTable\n    JWT_SECRET: d958b1bb58e247e6f254711ff0439013ff8ff9a7a05530532473e4b2bcdcd35ec47c011041f7bac9967b16d436d9511bd60b33b8f6554b50c63c74294ee4ea85\n  iamRoleStatements:\n    - Effect: Allow\n      Action:\n        - dynamodb:Scan\n        - dynamodb:Query\n        - dynamodb:GetItem\n        - dynamodb:PutItem\n        - dynamodb:UpdateItem\n        - dynamodb:DeleteItem\n      Resource:\n        - arn:aws:dynamodb:eu-north-1:911167889587:table/NotesTable\n        - arn:aws:dynamodb:eu-north-1:911167889587:table/UsersTable\n\nfunctions:\n  signup:\n    handler: handler.signup\n    events:\n      - http:\n          path: user/signup\n          method: post\n          cors: true\n\n  login:\n    handler: handler.login\n    events:\n      - http:\n          path: user/login\n          method: post\n          cors: true\n\n  getNotes:\n    handler: handler.getNotes\n    events:\n      - http:\n          path: notes\n          method: get\n          cors: true\n\n  addNote:\n    handler: handler.addNote\n    events:\n      - http:\n          path: notes\n          method: post\n          cors: true\n\n  updateNote:\n    handler: handler.updateNote\n    events:\n      - http:\n          path: notes\n          method: put\n          cors: true\n\n  deleteNote:\n    handler: handler.deleteNote\n    events:\n      - http:\n          path: notes/{id}\n          method: delete\n          cors: true\n\nresources:\n  Resources:\n    NotesTable:\n      Type: AWS::DynamoDB::Table\n      Properties:\n        TableName: NotesTable\n        AttributeDefinitions:\n          - AttributeName: id\n            AttributeType: S\n        KeySchema:\n          - AttributeName: id\n            KeyType: HASH\n        BillingMode: PAY_PER_REQUEST\n\n    UsersTable:\n      Type: AWS::DynamoDB::Table\n      Properties:\n        TableName: UsersTable\n        AttributeDefinitions:\n          - AttributeName: email\n            AttributeType: S\n        KeySchema:\n          - AttributeName: email\n            KeyType: HASH\n        BillingMode: PAY_PER_REQUEST\n",
     "command": [
       "deploy"
     ],
@@ -2902,58 +2903,58 @@
     "userId": "TsblCnKbPCdLzYv731",
     "userName": "folkuniversitet",
     "serviceProviderAwsAccountId": "911167889587",
-    "serviceProviderAwsCfStackName": "notes-api-dev",
-    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-north-1:911167889587:stack/notes-api-dev/522ac520-ebd9-11ef-8177-0e2fc5458eff",
-    "serviceProviderAwsCfStackCreated": "2025-02-15T20:13:29.214Z",
-    "serviceProviderAwsCfStackUpdated": "2025-02-15T22:12:06.610Z",
+    "serviceProviderAwsCfStackName": "EndpointsAPI-dev",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-north-1:911167889587:stack/EndpointsAPI-dev/65334060-ec93-11ef-9a99-0a7c73bc6131",
+    "serviceProviderAwsCfStackCreated": "2025-02-16T18:25:27.517Z",
+    "serviceProviderAwsCfStackUpdated": "2025-02-16T21:52:02.232Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "GetNotesLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:notes-api-dev-getNotes:5",
+        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:EndpointsAPI-dev-getNotes:2",
         "Description": "Current Lambda function version",
-        "ExportName": "sls-notes-api-dev-GetNotesLambdaFunctionQualifiedArn"
+        "ExportName": "sls-EndpointsAPI-dev-GetNotesLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "SignupLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:notes-api-dev-signup:5",
+        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:EndpointsAPI-dev-signup:2",
         "Description": "Current Lambda function version",
-        "ExportName": "sls-notes-api-dev-SignupLambdaFunctionQualifiedArn"
+        "ExportName": "sls-EndpointsAPI-dev-SignupLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "AddNoteLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:notes-api-dev-addNote:5",
+        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:EndpointsAPI-dev-addNote:2",
         "Description": "Current Lambda function version",
-        "ExportName": "sls-notes-api-dev-AddNoteLambdaFunctionQualifiedArn"
+        "ExportName": "sls-EndpointsAPI-dev-AddNoteLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "DeleteNoteLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:notes-api-dev-deleteNote:5",
+        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:EndpointsAPI-dev-deleteNote:2",
         "Description": "Current Lambda function version",
-        "ExportName": "sls-notes-api-dev-DeleteNoteLambdaFunctionQualifiedArn"
+        "ExportName": "sls-EndpointsAPI-dev-DeleteNoteLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "UpdateNoteLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:notes-api-dev-updateNote:5",
+        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:EndpointsAPI-dev-updateNote:2",
         "Description": "Current Lambda function version",
-        "ExportName": "sls-notes-api-dev-UpdateNoteLambdaFunctionQualifiedArn"
+        "ExportName": "sls-EndpointsAPI-dev-UpdateNoteLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "LoginLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:notes-api-dev-login:5",
+        "OutputValue": "arn:aws:lambda:eu-north-1:911167889587:function:EndpointsAPI-dev-login:2",
         "Description": "Current Lambda function version",
-        "ExportName": "sls-notes-api-dev-LoginLambdaFunctionQualifiedArn"
+        "ExportName": "sls-EndpointsAPI-dev-LoginLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ServiceEndpoint",
-        "OutputValue": "https://czyra1g418.execute-api.eu-north-1.amazonaws.com/dev",
+        "OutputValue": "https://s0ef52bpil.execute-api.eu-north-1.amazonaws.com/dev",
         "Description": "URL of the service endpoint",
-        "ExportName": "sls-notes-api-dev-ServiceEndpoint"
+        "ExportName": "sls-EndpointsAPI-dev-ServiceEndpoint"
       },
       {
         "OutputKey": "ServerlessDeploymentBucketName",
         "OutputValue": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-        "ExportName": "sls-notes-api-dev-ServerlessDeploymentBucketName"
+        "ExportName": "sls-EndpointsAPI-dev-ServerlessDeploymentBucketName"
       }
     ],
     "compiledCloudFormationTemplate": {
@@ -2963,37 +2964,37 @@
         "SignupLogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/notes-api-dev-signup"
+            "LogGroupName": "/aws/lambda/EndpointsAPI-dev-signup"
           }
         },
         "LoginLogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/notes-api-dev-login"
+            "LogGroupName": "/aws/lambda/EndpointsAPI-dev-login"
           }
         },
         "GetNotesLogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/notes-api-dev-getNotes"
+            "LogGroupName": "/aws/lambda/EndpointsAPI-dev-getNotes"
           }
         },
         "AddNoteLogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/notes-api-dev-addNote"
+            "LogGroupName": "/aws/lambda/EndpointsAPI-dev-addNote"
           }
         },
         "UpdateNoteLogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/notes-api-dev-updateNote"
+            "LogGroupName": "/aws/lambda/EndpointsAPI-dev-updateNote"
           }
         },
         "DeleteNoteLogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/notes-api-dev-deleteNote"
+            "LogGroupName": "/aws/lambda/EndpointsAPI-dev-deleteNote"
           }
         },
         "IamRoleLambdaExecution": {
@@ -3021,7 +3022,7 @@
                   "Fn::Join": [
                     "-",
                     [
-                      "notes-api",
+                      "EndpointsAPI",
                       "dev",
                       "lambda"
                     ]
@@ -3039,7 +3040,7 @@
                       ],
                       "Resource": [
                         {
-                          "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/notes-api-dev*:*"
+                          "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/EndpointsAPI-dev*:*"
                         }
                       ]
                     },
@@ -3050,7 +3051,7 @@
                       ],
                       "Resource": [
                         {
-                          "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/notes-api-dev*:*:*"
+                          "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/EndpointsAPI-dev*:*:*"
                         }
                       ]
                     },
@@ -3078,7 +3079,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "notes-api",
+                  "EndpointsAPI",
                   "dev",
                   {
                     "Ref": "AWS::Region"
@@ -3094,11 +3095,11 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-              "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+              "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
             },
             "Handler": "handler.signup",
             "Runtime": "nodejs18.x",
-            "FunctionName": "notes-api-dev-signup",
+            "FunctionName": "EndpointsAPI-dev-signup",
             "MemorySize": 1024,
             "Timeout": 6,
             "Environment": {
@@ -3124,11 +3125,11 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-              "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+              "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
             },
             "Handler": "handler.login",
             "Runtime": "nodejs18.x",
-            "FunctionName": "notes-api-dev-login",
+            "FunctionName": "EndpointsAPI-dev-login",
             "MemorySize": 1024,
             "Timeout": 6,
             "Environment": {
@@ -3154,11 +3155,11 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-              "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+              "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
             },
             "Handler": "handler.getNotes",
             "Runtime": "nodejs18.x",
-            "FunctionName": "notes-api-dev-getNotes",
+            "FunctionName": "EndpointsAPI-dev-getNotes",
             "MemorySize": 1024,
             "Timeout": 6,
             "Environment": {
@@ -3184,11 +3185,11 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-              "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+              "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
             },
             "Handler": "handler.addNote",
             "Runtime": "nodejs18.x",
-            "FunctionName": "notes-api-dev-addNote",
+            "FunctionName": "EndpointsAPI-dev-addNote",
             "MemorySize": 1024,
             "Timeout": 6,
             "Environment": {
@@ -3214,11 +3215,11 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-              "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+              "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
             },
             "Handler": "handler.updateNote",
             "Runtime": "nodejs18.x",
-            "FunctionName": "notes-api-dev-updateNote",
+            "FunctionName": "EndpointsAPI-dev-updateNote",
             "MemorySize": 1024,
             "Timeout": 6,
             "Environment": {
@@ -3244,11 +3245,11 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-north-1-b08760de-9703",
-              "S3Key": "serverless/notes-api/dev/1739660652373-2025-02-15T23:04:12.373Z/notes-api.zip"
+              "S3Key": "serverless/EndpointsAPI/dev/1739743330680-2025-02-16T22:02:10.680Z/EndpointsAPI.zip"
             },
             "Handler": "handler.deleteNote",
             "Runtime": "nodejs18.x",
-            "FunctionName": "notes-api-dev-deleteNote",
+            "FunctionName": "EndpointsAPI-dev-deleteNote",
             "MemorySize": 1024,
             "Timeout": 6,
             "Environment": {
@@ -3269,70 +3270,70 @@
             "DeleteNoteLogGroup"
           ]
         },
-        "SignupLambdaVersion8karyYfrpsRpyD1HUvisUbaIZZhrmTvriN2pi9XZA": {
+        "SignupLambdaVersionHA8nx499yXJDjG7klZXqQbTiEx0r0RIOGTG2OdjMQ": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "SignupLambdaFunction"
             },
-            "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+            "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
           }
         },
-        "LoginLambdaVersioneth8ADylkx3nhFmNZcZzGBjXWQDHIVwx6fLS5ezo": {
+        "LoginLambdaVersion86mafisvhF3G48I0v0UX4yu6TbuZZ5QRv0cHrkL1U": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "LoginLambdaFunction"
             },
-            "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+            "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
           }
         },
-        "GetNotesLambdaVersionqJk0yPwwMbvhQ3xQ05WmK5e9tyCrjaLcJuBGu5j5lY": {
+        "GetNotesLambdaVersionBREBRHslMAY9zcUPcUwBnBNo1Ra6hsen2jRdCEefL4": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "GetNotesLambdaFunction"
             },
-            "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+            "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
           }
         },
-        "AddNoteLambdaVersion8zKnDSsYEeqENZSZIj2B5ZhQ5tLzawZU9s6bKEQk": {
+        "AddNoteLambdaVersionk5TETzHBKBTZHhNXWEYg8YpN6zTqU6qbl9SWyTgjo": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "AddNoteLambdaFunction"
             },
-            "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+            "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
           }
         },
-        "UpdateNoteLambdaVersionVzVyX0KBZrogPhGtd2w88NbXx2oQmOn3dDzaCOV5w": {
+        "UpdateNoteLambdaVersion5riFZ6LwuJN47MUJH2MwejzhCOVcladcDRe61Wdzkc": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "UpdateNoteLambdaFunction"
             },
-            "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+            "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
           }
         },
-        "DeleteNoteLambdaVersion1t3TovoHRlRyOOIvJNaXMl4EK8D3ba3QabOqrzEM": {
+        "DeleteNoteLambdaVersionJFD2d76klqRPZTx6VyE8hktTYdlDLYpcYxcpOu8NOM": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "DeleteNoteLambdaFunction"
             },
-            "CodeSha256": "7lZ+BWPwsvWF5GwYTprp5GmhL57GCitUbYFvBB17YTU="
+            "CodeSha256": "5+4kD7xFjKZ5Kt0lWY5wjmsJmLoUxqCU1XNqSwsGkW0="
           }
         },
         "ApiGatewayRestApi": {
           "Type": "AWS::ApiGateway::RestApi",
           "Properties": {
-            "Name": "dev-notes-api",
+            "Name": "dev-EndpointsAPI",
             "EndpointConfiguration": {
               "Types": [
                 "EDGE"
@@ -3863,7 +3864,7 @@
             "DeleteNoteLambdaPermissionApiGateway"
           ]
         },
-        "ApiGatewayDeployment1739660630453": {
+        "ApiGatewayDeployment1739743316965": {
           "Type": "AWS::ApiGateway::Deployment",
           "Properties": {
             "RestApiId": {
@@ -4149,61 +4150,61 @@
         "ServerlessDeploymentBucketName": {
           "Value": "serverless-framework-deployments-eu-north-1-b08760de-9703",
           "Export": {
-            "Name": "sls-notes-api-dev-ServerlessDeploymentBucketName"
+            "Name": "sls-EndpointsAPI-dev-ServerlessDeploymentBucketName"
           }
         },
         "SignupLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "SignupLambdaVersion8karyYfrpsRpyD1HUvisUbaIZZhrmTvriN2pi9XZA"
+            "Ref": "SignupLambdaVersionHA8nx499yXJDjG7klZXqQbTiEx0r0RIOGTG2OdjMQ"
           },
           "Export": {
-            "Name": "sls-notes-api-dev-SignupLambdaFunctionQualifiedArn"
+            "Name": "sls-EndpointsAPI-dev-SignupLambdaFunctionQualifiedArn"
           }
         },
         "LoginLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "LoginLambdaVersioneth8ADylkx3nhFmNZcZzGBjXWQDHIVwx6fLS5ezo"
+            "Ref": "LoginLambdaVersion86mafisvhF3G48I0v0UX4yu6TbuZZ5QRv0cHrkL1U"
           },
           "Export": {
-            "Name": "sls-notes-api-dev-LoginLambdaFunctionQualifiedArn"
+            "Name": "sls-EndpointsAPI-dev-LoginLambdaFunctionQualifiedArn"
           }
         },
         "GetNotesLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "GetNotesLambdaVersionqJk0yPwwMbvhQ3xQ05WmK5e9tyCrjaLcJuBGu5j5lY"
+            "Ref": "GetNotesLambdaVersionBREBRHslMAY9zcUPcUwBnBNo1Ra6hsen2jRdCEefL4"
           },
           "Export": {
-            "Name": "sls-notes-api-dev-GetNotesLambdaFunctionQualifiedArn"
+            "Name": "sls-EndpointsAPI-dev-GetNotesLambdaFunctionQualifiedArn"
           }
         },
         "AddNoteLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "AddNoteLambdaVersion8zKnDSsYEeqENZSZIj2B5ZhQ5tLzawZU9s6bKEQk"
+            "Ref": "AddNoteLambdaVersionk5TETzHBKBTZHhNXWEYg8YpN6zTqU6qbl9SWyTgjo"
           },
           "Export": {
-            "Name": "sls-notes-api-dev-AddNoteLambdaFunctionQualifiedArn"
+            "Name": "sls-EndpointsAPI-dev-AddNoteLambdaFunctionQualifiedArn"
           }
         },
         "UpdateNoteLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "UpdateNoteLambdaVersionVzVyX0KBZrogPhGtd2w88NbXx2oQmOn3dDzaCOV5w"
+            "Ref": "UpdateNoteLambdaVersion5riFZ6LwuJN47MUJH2MwejzhCOVcladcDRe61Wdzkc"
           },
           "Export": {
-            "Name": "sls-notes-api-dev-UpdateNoteLambdaFunctionQualifiedArn"
+            "Name": "sls-EndpointsAPI-dev-UpdateNoteLambdaFunctionQualifiedArn"
           }
         },
         "DeleteNoteLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "DeleteNoteLambdaVersion1t3TovoHRlRyOOIvJNaXMl4EK8D3ba3QabOqrzEM"
+            "Ref": "DeleteNoteLambdaVersionJFD2d76klqRPZTx6VyE8hktTYdlDLYpcYxcpOu8NOM"
           },
           "Export": {
-            "Name": "sls-notes-api-dev-DeleteNoteLambdaFunctionQualifiedArn"
+            "Name": "sls-EndpointsAPI-dev-DeleteNoteLambdaFunctionQualifiedArn"
           }
         },
         "ServiceEndpoint": {
@@ -4229,7 +4230,7 @@
             ]
           },
           "Export": {
-            "Name": "sls-notes-api-dev-ServiceEndpoint"
+            "Name": "sls-EndpointsAPI-dev-ServiceEndpoint"
           }
         }
       }

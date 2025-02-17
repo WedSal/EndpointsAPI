@@ -1,6 +1,5 @@
-// ✅ Import only what you need
 import middy from '@middy/core';
-import { authenticate } from './functions/auth.js';
+import { authenticate } from './functions/authMiddleware.js';
 import { 
   getNotes as getNotesFromDb, 
   addNote as addNoteToDb, 
@@ -8,7 +7,9 @@ import {
   deleteNote as deleteNoteFromDb 
 } from './functions/notes.js';
 
-// ✅ Define handlers with middleware
+import { signup, login } from './functions/auth.js';  
+export{signup, login};
+
 const getNotesHandler = async (event) => {
   try {
     const userId = event.user.email; // Get user ID from JWT
@@ -54,6 +55,13 @@ const deleteNoteHandler = async (event) => {
   try {
     const { id } = event.pathParameters;
     const userId = event.user.email;
+
+    if (!id || !userId) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ message: 'Invalid request parameters' }),
+      };
+    }
     return await deleteNoteFromDb(id, userId);
   } catch (error) {
     console.error('Error in deleteNoteHandler:', error);
@@ -64,7 +72,7 @@ const deleteNoteHandler = async (event) => {
   }
 };
 
-// ✅ Export with Middy Middleware for Auth
+
 export const getNotes = middy(getNotesHandler).use(authenticate());
 export const addNote = middy(addNoteHandler).use(authenticate());
 export const updateNote = middy(updateNoteHandler).use(authenticate());
