@@ -1,5 +1,3 @@
-// functions/auth.js
-
 import AWS from 'aws-sdk';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -8,12 +6,12 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const USERS_TABLE = process.env.USERS_TABLE;
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// **Signup Function**
+
 export const signup = async (event) => {
   try {
     const { email, password } = JSON.parse(event.body);
 
-    // Input validation
+   
     if (!email || !password) {
       return {
         statusCode: 400,
@@ -21,7 +19,7 @@ export const signup = async (event) => {
       };
     }
 
-    // Check if user already exists
+    
     const userParams = {
       TableName: USERS_TABLE,
       Key: { email },
@@ -35,10 +33,10 @@ export const signup = async (event) => {
       };
     }
 
-    // Hash the password
+    
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create user in DynamoDB
+    
     const newUser = {
       email,
       password: hashedPassword,
@@ -65,12 +63,12 @@ export const signup = async (event) => {
   }
 };
 
-// **Login Function**
+
 export const login = async (event) => {
   try {
     const { email, password } = JSON.parse(event.body);
 
-    // Input validation
+    
     if (!email || !password) {
       return {
         statusCode: 400,
@@ -78,7 +76,7 @@ export const login = async (event) => {
       };
     }
 
-    // Fetch user from DynamoDB
+    
     const userParams = {
       TableName: USERS_TABLE,
       Key: { email },
@@ -92,7 +90,7 @@ export const login = async (event) => {
       };
     }
 
-    // Compare password
+    
     const isPasswordValid = await bcrypt.compare(password, userResult.Item.password);
 
     if (!isPasswordValid) {
@@ -102,7 +100,7 @@ export const login = async (event) => {
       };
     }
 
-    // Generate JWT token
+    
     const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: '1h' });
 
     return {
